@@ -15,15 +15,17 @@ jobs:
 
       - name: Make scripts executable
         run: |
+          cd scripts
           chmod +x check_api.sh
           chmod +x analyze_logs.sh
 
       - name: Check Bash syntax
         run: |
+          cd scripts
           bash -n check_api.sh
           bash -n analyze_logs.sh
 
       - name: Test API Monitoring script
         run: |
-          ./check_api.sh https://httpbin.org/status/200
+          ./scripts/check_api.sh https://httpbin.org/status/200
           
