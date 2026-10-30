@@ -1,0 +1,13 @@
+services:
+  api:
+    image: hashicorp/http-echo:latest
+    command: -text="Monitoring Service Active"
+    ports:
+      - "8080:5678"
+
+  proxy:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
